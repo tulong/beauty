@@ -1,26 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:cloud="http://schema.cloudfoundry.org/spring"
+	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-		http://schema.cloudfoundry.org/spring
-http://schema.cloudfoundry.org/spring/cloudfoundry-spring-0.7.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://schema.cloudfoundry.org/spring
+        http://schema.cloudfoundry.org/spring/cloudfoundry-spring.xsd
           http://www.springframework.org/schema/data/mongo
-          http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd">
+          http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <!-- mongodb -->
 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg ref="mongoDbFactory"/> 	
 	</bean>
+	
+	<mongo:repositories base-package="com.wwt.cn.beauty.repository" />
     
+     
 	<beans profile="default">
-		   <mongo:db-factory id="mongoDbFactory" dbname="pwdtest" host="127.0.0.1" port="27017" username="test_user" password="efgh" />
+		   <mongo:db-factory id="mongoDbFactory" dbname="beauty" />
 	    
-	</beans>
-
+	</beans> 
+<!-- 
 	<beans profile="cloud">
 		<cloud:mongo-db-factory id="mongoDbFactory"/>
-	</beans>
+	</beans> -->
 
+
+	<beans profile="cloud">
+<!-- <cloud:data-source id="mongoDbFactory" service-name="mongodb-hello" /> -->
+		<!-- <cloud:mongo-db-factory id="mongoDbFactory"/> -->
+		<!-- <mongo:db-factory
+    id="mongoDbFactory"
+    dbname="db"
+    host="172.30.48.63"
+    port="25206"
+    username="54067319-a8ee-4371-a716-a33298a876d8"
+    password="08df3b13-a5e0-45f8-afe7-e94e0fc92fbf" /> -->
+	</beans>
 
 </beans>

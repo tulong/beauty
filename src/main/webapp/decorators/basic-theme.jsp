@@ -28,9 +28,9 @@
 <body>
 <div id='container'>
     <header>
-      <h1>Pagify.js<small>A jQuery plugin for single page web sites</small></h1>
+      <h1>Beauty<small>God gives us eyes, because of Beauty!</small></h1>
       <nav>
-        <a href='/'>Home</a>
+        <a href='./'>Home</a>
         <a href='/login'>login</a>
         <a href='#options'>Options</a>
         <a href='https://github.com/cmpolis/Pagify'>Github</a>
@@ -40,12 +40,13 @@
     <div id='page_holder' />
     
 
-<P>  Welcome!  a<%=request.getContextPath() %>a</P>
+<P>  Welcome!  <%=request.getContextPath() %></P>
 
 
     <hr />
     <decorator:body />
     <hr />
-    <h1>Footer</h1>
+    <h1>Footer</h1><a href="mailto:someone@example.com?Subject=Hello%20Beauty">
+Send Mail</a>
 </body>
 </html>

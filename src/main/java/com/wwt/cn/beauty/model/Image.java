@@ -15,6 +15,7 @@ public class Image {
 	private String type;// public,private,group
 	private String userName;
 	private Date date;
+	private String url;
 	public ObjectId getId() {
 		return id;
 	}
@@ -56,6 +57,12 @@ public class Image {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 }
