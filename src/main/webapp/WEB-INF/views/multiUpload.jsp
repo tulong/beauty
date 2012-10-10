@@ -4,22 +4,29 @@
 <html>
 <head>
     <title>My Uploadify Implementation</title>
-    <link rel="stylesheet" type="text/css" href="../../css/uploadify.css">
+   
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/uploadify.css">
+   
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../../js/jquery.uploadify-3.1.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.uploadify-3.1.min.js"></script>
     <script type="text/javascript">
     $(function() {
     	$('#file_upload').uploadify({
-							'fileObjName' : 'file_upload',
-							'swf' : '../../swf/uploadify.swf',
-							'uploader' : '../../api/product/insertList'
+			 'formData' : {
+					'userid' : '123'
+				},
+							'fileObjName' : 'imgFile',
+							'swf' : '<%=request.getContextPath() %>/swf/uploadify.swf',
+							'uploader' : './upload'
 						// Your options here
 						});
 					});
 				</script>
 </head>
+
 <body>
-<input type="file" name="file_upload" id="file_upload" />
+ 
+<input type="file" name="imgFile" id="file_upload" />
 
 </body>
 </html>
