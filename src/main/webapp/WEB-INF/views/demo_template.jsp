@@ -14,7 +14,10 @@
 <c:if test="${!empty images}" >
 <c:forEach var="image" items="${images}">
   <div class="box photo col3">
-    <a href="${image.url }" title="${image.name }"><img src="${image.url }" alt="${image.name }"></a>
+    <a href="${image.url }" rel="lightbox" title="${image.name }"><img src="${image.url }" alt="${image.name }" style="cursor:url('http://cdn3.iconfinder.com/data/icons/fatcow/32x32_0560/magnifier_zoom_in.png'),auto"></a>
+    <div class="button">
+    <img alt="something to remember." src="<%=request.getContextPath() %>/img/pinterest_heart.png">
+    </div>
   </div>
 
 </c:forEach>

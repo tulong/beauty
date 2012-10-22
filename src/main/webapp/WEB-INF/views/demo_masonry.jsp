@@ -7,6 +7,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
+<script src="<%=request.getContextPath() %>/js/masonry/jquery-1.7.1.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/masonry/jquery.masonry.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/masonry/jquery.infinitescroll.min.js"></script>
+<script src="<%=request.getContextPath() %>/js/lightbox/lightbox.js"></script>
+<link href="<%=request.getContextPath() %>/css/lightbox/lightbox.css" rel="stylesheet" />
+
+<style>
+div.button {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    width: 20px;
+    height: 10px;
+    display: none;
+}
+</style>
 </head>
 <body>
 
@@ -15,7 +32,10 @@
 <c:if test="${!empty images}" >
 <c:forEach var="image" items="${images}">
   <div class="box photo col3">
-    <a href="${image.url }" title="${image.name }"><img src="${image.url }" alt="${image.name }"></a>
+    <a href="${image.url }" rel="lightbox" title="${image.name }"><img src="${image.url }" alt="${image.name }" style="cursor:url('http://cdn3.iconfinder.com/data/icons/fatcow/32x32_0560/magnifier_zoom_in.png'),auto"></a>
+        <div class="button">
+    <img alt="something to remember." src="<%=request.getContextPath() %>/img/pinterest_heart.png">
+    </div>
   </div>
 
 </c:forEach>
@@ -27,11 +47,17 @@
   <a href="./loading/2"></a>
 </nav>
 
-<script src="../js/masonry/jquery-1.7.1.min.js"></script>
-<script src="../js/masonry/jquery.masonry.min.js"></script>
-<script src="../js/masonry/jquery.infinitescroll.min.js"></script>
 <script>
   $(function(){
+	  $('.box').on({
+          hover: function() {
+              var buttonDiv = $(this).children('div.button');
+              buttonDiv.toggle();
+          }
+      });
+        $("div.button").click(function(){
+  alert(123);
+});
 
     var $container = $('#container');
   
@@ -60,6 +86,18 @@
           $newElems.animate({ opacity: 1 });
           $container.masonry( 'appended', $newElems, true ); 
         });
+        
+        //add new elems js function, by vincent
+        $newElems.on({
+            hover: function() {
+                var buttonDiv = $(this).children('div.button');
+                buttonDiv.toggle();
+            }
+        });
+        //find div.button under newElems, by vincent
+        $newElems.find("div.button").click(function(){
+  alert(123);
+});
       }
     );
   

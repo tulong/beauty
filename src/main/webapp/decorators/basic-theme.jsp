@@ -15,10 +15,10 @@
  --%>
  
  
-    <script src="<%=request.getContextPath() %>/js/pagify/jquery-1.6.4.min.js" type="text/javascript"></script>
-    <script src="<%=request.getContextPath() %>/js/pagify/pagify.js" type="text/javascript"></script>
-    
-    <script type='text/javascript'>
+    <%-- <script src="<%=request.getContextPath() %>/js/pagify/jquery-1.6.4.min.js" type="text/javascript"></script>
+     <script src="<%=request.getContextPath() %>/js/pagify/pagify.js" type="text/javascript"></script>
+    --%>
+<!--     <script type='text/javascript'>
       $(document).ready(function() {
         $('#page_holder').pagify({
           pages: ['home', 'login', 'demo','multiUpload'],
@@ -27,7 +27,7 @@
           cache: true
         });
       });
-    </script>
+    </script> -->
     
     
   <decorator:head />

@@ -1,5 +1,6 @@
 package com.wwt.cn.beauty.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.bson.types.ObjectId;
@@ -10,7 +11,7 @@ public class Image {
 
 	private ObjectId id;
 	private String name;
-	private String tag;
+	private ArrayList<String> tags;
 	private double star;
 	private String type;// public,private,group
 	private String userName;
@@ -28,11 +29,11 @@ public class Image {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getTag() {
-		return tag;
+	public ArrayList<String> getTags() {
+		return tags;
 	}
-	public void setTag(String tag) {
-		this.tag = tag;
+	public void setTags(ArrayList<String> tags) {
+		this.tags = tags;
 	}
 	public double getStar() {
 		return star;
