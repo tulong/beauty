@@ -24,7 +24,7 @@
     
      
 	<beans profile="default">
-		   <!-- <mongo:db-factory id="mongoDbFactory" dbname="beauty" /> -->
+		   <mongo:db-factory id="mongoDbFactory" dbname="beauty" />
 	    
 	</beans> 
 <!-- 
@@ -36,13 +36,13 @@
 	<beans profile="cloud">
 <!-- <cloud:data-source id="mongoDbFactory" service-name="mongodb-hello" /> -->
 		<!-- <cloud:mongo-db-factory id="mongoDbFactory"/> -->
-		<mongo:db-factory
+		<!-- <mongo:db-factory
     id="mongoDbFactory"
     dbname="db"
     host="172.30.48.63"
     port="25206"
     username="54067319-a8ee-4371-a716-a33298a876d8"
-    password="08df3b13-a5e0-45f8-afe7-e94e0fc92fbf" />
+    password="08df3b13-a5e0-45f8-afe7-e94e0fc92fbf" /> -->
 	</beans>
 
 </beans>
