@@ -2,6 +2,7 @@ package www.wwt.cn;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -106,4 +108,30 @@ public class ImageController {
 		
 		return "redirect:../all";
 	}
+	
+
+	@RequestMapping(value = "addTag", method = RequestMethod.GET)
+	public @ResponseBody String addTag(@RequestParam String id,@RequestParam String tag) {
+		System.out.println(tag);
+		Image image=imageRepository.findOne(ObjectId.massageToObjectId(id));
+		if (image.getTags()==null) {
+			image.setTags(new ArrayList<String>());
+		}
+		image.getTags().add(tag);
+		imageRepository.save(image);
+		return "success";
+	}
+	
+
+	@RequestMapping(value = "clearTag", method = RequestMethod.GET)
+	public @ResponseBody String clearTag() {
+		Iterable<Image> images= imageRepository.findAll();
+		for (Image image : images) {
+			image.setTags(null);
+			imageRepository.save(image);
+		}
+		return "success";
+	}
+	
+	
 }
